@@ -1,10 +1,8 @@
 from groq import Groq
-from dotenv import load_dotenv
 import streamlit as st
 import os
 
-load_dotenv()
-api_token = os.getenv("GROQ_API_KEY")
+api_token = st.secrets["api_token"]
 client = Groq(api_key=api_token)
 
 if 'messages' not in st.session_state:
